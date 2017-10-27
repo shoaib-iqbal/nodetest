@@ -1,0 +1,396 @@
+@import 'nib'
+
+sqrt(x)
+  return math(x, 'sqrt')
+
+primary-color = #1ab394
+background-color = #f3f3f4
+bigger-circle-radius = 120
+smaller-circle-radius = 82
+
+/**
+ * @license angular-circular-timepicker  version: 0.1.0
+ * Copyright 2016 sidaudhi.com, Inc. http://www.sidaudhi.com
+ * License: MIT
+ *
+ * @author        Siddharth Audhinarayanan
+ * @since        2016-Jan-31
+ */
+
+.datetimepicker
+  nested-reset()
+  font-family Arial
+
+  .left
+    float left
+
+  .right
+    float right
+
+  .datetimepicker-display
+    padding 6px 12px
+    border 1px solid rgba(0,0,0,0.15)
+    font-size 15px
+    min-height 34px
+
+  .datetimepicker-toggle
+    float right
+    padding 7px
+    border 0px
+    cursor pointer
+
+  .datetimepicker-modal
+    top 0
+    bottom 0
+    left 0
+    right 0
+    background-color rgba(0,0,0,0.5)
+    position fixed
+    z-index 990
+
+  .datetimepicker-close
+    position fixed
+    right 10px
+    top 5px
+    color #FFF
+    font-size 24px
+    cursor pointer
+    z-index 999
+
+  .datetimepicker-preview
+    padding 12px
+    text-align center
+    cursor pointer
+    font-size 32px
+    background-color primary-color
+    color #FFF
+
+    @media screen and (max-width: 767px) and (orientation: landscape)
+      display inline-block
+      width 260px
+
+  .datetimepicker-section
+    width 100%
+
+    @media screen and (max-width: 767px) and (orientation: landscape)
+      width 260px
+      display inline-block
+
+  .datetimepicker-content
+    min-height 300px
+    background-color background-color
+    border 1px solid rgba(0,0,0,0.15)
+    border-top 0px
+    position absolute
+    width 290px
+    z-index 998
+
+    &.datetimepicker-absolute
+      position fixed
+      top calc(30% - 100px)
+      left calc(50% - 145px)
+      border 0px
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+      border-bottom 15px solid primary-color
+
+      @media screen and (max-width: 767px) and (orientation: landscape)
+        width 320px
+        top calc(50% - 150px)
+        height 300px
+        left calc(50% - 160px)
+
+    .datetimepicker-tabs
+      background-color primary-color
+
+      @media screen and (max-width: 767px) and (orientation: landscape)
+        float left
+        width 60px
+        height 100%
+
+      .datetimepicker-tab
+        width 50%
+        display inline-block
+        box-sizing border-box
+        padding 12px
+        text-align center
+        font-size 13px
+        text-transform uppercase
+        color #FFF
+        cursor pointer
+        background-color background-color
+        color primary-color
+        &.active
+          background-color primary-color
+          color background-color
+          font-weight bold
+
+        @media screen and (max-width: 767px) and (orientation: landscape)
+          width 100%
+          height 50%
+
+        span
+          @media screen and (max-width: 767px) and (orientation: landscape)
+            transform rotate(-90deg)
+            transform-origin right center 0
+            display block
+            margin-top 50px
+            margin-right 15px
+            font-size 18px
+
+    .datetimepicker-month
+      border-top 1px solid rgba(0,0,0,0.20)
+      border-bottom 1px solid rgba(0,0,0,0.20)
+      background-color #FFF
+      width 174px
+      display inline-block
+      box-sizing border-box
+
+      @media screen and (max-width: 767px) and (orientation: landscape)
+        width 160px
+
+      .datetimepicker-current-month
+        text-align center
+        padding 10px 10px
+
+    .datetimepicker-year
+      border-top 1px solid rgba(0,0,0,0.20)
+      border-bottom 1px solid rgba(0,0,0,0.20)
+      background-color #FFF
+      width 115px
+      display inline-block
+      box-sizing border-box
+      border-left 1px solid rgba(0,0,0,0.20)
+
+      @media screen and (max-width: 767px) and (orientation: landscape)
+        width 100px
+
+      .datetimepicker-current-year
+        text-align center
+        padding 10px 10px
+
+  .datetimepicker-calendar
+    text-align center
+    padding 10px 0px
+
+    @media screen and (max-width: 767px) and (orientation: landscape)
+      transform scale(0.90,0.65)
+      width 270px
+      margin-left -5px
+      transform-origin 50% 0
+
+    .datetimepicker-day
+      width 38px
+      display inline-block
+      text-align center
+      padding 10px
+      box-sizing border-box
+      font-weight bold
+      color primary-color
+      font-size 15px
+      &.datetimepicker-leading-day
+      &.datetimepicker-trailing-day
+        font-weight normal
+        color rgba(0,0,0,0.25)
+      &.datetimepicker-active-day
+        font-weight normal
+        color rgba(0,0,0,0.75)
+        font-size 14px
+        &.selected
+        &:hover
+          background-color #FFF
+          cursor pointer
+
+      @media screen and (max-width: 767px) and (orientation: landscape)
+        padding 8px
+
+  .time-circle-outer
+    width "%spx" % (bigger-circle-radius*2)
+    height "%spx" % (bigger-circle-radius*2)
+    border 3px dashed rgba(0,0,0,0.1)
+    border-radius 50%
+    margin 30px auto
+    box-sizing border-box
+    position relative
+
+    @media screen and (max-width: 767px) and (orientation: landscape)
+      transform scale(0.75)
+      margin-top -15px
+
+    .time-circle-center
+      position absolute
+      top calc(50% - 10px)
+      left calc(50% - 10px)
+      width 20px
+      height 20px
+      background-color primary-color
+      border-radius 50%
+
+    .time-meridian
+      position absolute
+      top -85px
+      width 30px
+      height 30px
+      padding 7px 5px
+      border-radius 50%
+      font-size 13px
+      font-weight bold
+      cursor pointer
+      color #FFF
+      text-align center
+      &.time-left
+        left -15px
+      &.time-right
+        right -15px
+      &.selected
+        background-color #FFF
+        color primary-color
+
+    .time-circle-hand
+      width: 6px;
+      height "%spx" % (smaller-circle-radius)
+      position: absolute;
+      left: calc(50% - 3px);
+      top: "calc(50% - %spx)" % (smaller-circle-radius);
+      transform-origin 50% 100%
+      background-color: primary-color;
+      for num in 1 2 3 4 5 6 7 8 9 10 11 12
+        degrees = 30*num
+        &.deg-{num}
+          transform "rotate(%sdeg)" % degrees
+
+    .time-circle-hand-large
+      height "%spx" % (bigger-circle-radius)
+      top "calc(50% - %spx)" % (bigger-circle-radius)
+
+    .time
+      position absolute
+      margin-top -15px
+      margin-left -15px
+      background-color rgb(180,180,180)
+      border-radius 50%
+      padding 5px
+      height 28px
+      width 28px
+      box-sizing border-box
+      text-align center
+      font-size 13px
+      cursor pointer
+      color #FFF
+      &:hover
+      &.selected
+        background-color primary-color
+        color #FFF
+
+    .time-1
+      left "calc(50% + %spx)" % (bigger-circle-radius/2)
+      top "%spx" % (bigger-circle-radius - (bigger-circle-radius*sqrt(3)/2))
+
+    .time-2
+      left "calc(50% + %spx)" % (bigger-circle-radius*sqrt(3)/2)
+      top "%spx" % (bigger-circle-radius - (bigger-circle-radius/2))
+
+    .time-3
+      left "calc(50% + %spx)" % (bigger-circle-radius)
+      top "%spx" % (bigger-circle-radius)
+
+    .time-4
+      left "calc(50% + %spx)" % (bigger-circle-radius*sqrt(3)/2)
+      top "%spx" % (bigger-circle-radius + (bigger-circle-radius/2))
+
+    .time-5
+      left "calc(50% + %spx)" % (bigger-circle-radius/2)
+      top "%spx" % (bigger-circle-radius + (bigger-circle-radius*sqrt(3)/2))
+
+    .time-6
+      left 50%;
+      top "%spx" % (bigger-circle-radius*2)
+
+    .time-11
+      left "calc(50% - %spx)" % (bigger-circle-radius/2)
+      top "%spx" % (bigger-circle-radius - (bigger-circle-radius*sqrt(3)/2))
+
+    .time-10
+      left "calc(50% - %spx)" % (bigger-circle-radius*sqrt(3)/2)
+      top "%spx" % (bigger-circle-radius - (bigger-circle-radius/2))
+
+    .time-9
+      left "calc(50% - %spx)" % (bigger-circle-radius)
+      top "%spx" % (bigger-circle-radius)
+
+    .time-8
+      left "calc(50% - %spx)" % (bigger-circle-radius*sqrt(3)/2)
+      top "%spx" % (bigger-circle-radius + (bigger-circle-radius/2))
+
+    .time-7
+      left "calc(50% - %spx)" % (bigger-circle-radius/2)
+      top "%spx" % (bigger-circle-radius + (bigger-circle-radius*sqrt(3)/2))
+
+    .time-12
+      left 50%;
+      top "%spx" % 0
+
+    .time-circle-inner
+      width  "%spx" % (smaller-circle-radius*2)
+      height  "%spx" % (smaller-circle-radius*2)
+      border 3px dashed rgba(0,0,0,0.1)
+      border-radius 50%
+      margin 35px auto
+      box-sizing border-box
+      position relative
+
+      .time-1
+        left "calc(50% + %spx)" % (smaller-circle-radius/2)
+        top "%spx" % (smaller-circle-radius - (smaller-circle-radius*sqrt(3)/2))
+
+      .time-2
+        left "calc(50% + %spx)" % (smaller-circle-radius*sqrt(3)/2)
+        top "%spx" % (smaller-circle-radius - (smaller-circle-radius/2))
+
+      .time-3
+        left "calc(50% + %spx)" % (smaller-circle-radius)
+        top "%spx" % (smaller-circle-radius)
+
+      .time-4
+        left "calc(50% + %spx)" % (smaller-circle-radius*sqrt(3)/2)
+        top "%spx" % (smaller-circle-radius + (smaller-circle-radius/2))
+
+      .time-5
+        left "calc(50% + %spx)" % (smaller-circle-radius/2)
+        top "%spx" % (smaller-circle-radius + (smaller-circle-radius*sqrt(3)/2))
+
+      .time-6
+        left 50%;
+        top "%spx" % (smaller-circle-radius*2)
+
+      .time-11
+        left "calc(50% - %spx)" % (smaller-circle-radius/2)
+        top "%spx" % (smaller-circle-radius - (smaller-circle-radius*sqrt(3)/2))
+
+      .time-10
+        left "calc(50% - %spx)" % (smaller-circle-radius*sqrt(3)/2)
+        top "%spx" % (smaller-circle-radius - (smaller-circle-radius/2))
+
+      .time-9
+        left "calc(50% - %spx)" % (smaller-circle-radius)
+        top "%spx" % (smaller-circle-radius)
+
+      .time-8
+        left "calc(50% - %spx)" % (smaller-circle-radius*sqrt(3)/2)
+        top "%spx" % (smaller-circle-radius + (smaller-circle-radius/2))
+
+      .time-7
+        left "calc(50% - %spx)" % (smaller-circle-radius/2)
+        top "%spx" % (smaller-circle-radius + (smaller-circle-radius*sqrt(3)/2))
+
+      .time-12
+        left 50%;
+        top "%spx" % 0
+
+  .datetimepicker-action
+    cursor pointer
+    font-weight bold
+    line-height 18px
+    padding 10px 10px
+    &:hover
+      background-color rgba(255,255,255,0.75)
+      cursor pointer

@@ -1,0 +1,35 @@
+{
+  "name": "ng-textarea-enter",
+  "version": "0.1.6",
+  "homepage": "https://github.com/ArunMichaelDsouza/ng-textarea-enter",
+  "authors": [
+    "Arun Michael Dsouza <amdsouza92@gmail.com>"
+  ],
+  "description": "AngularJS Module to enable action trigger for textarea on pressing the 'enter' key",
+  "main": "src/ng-textarea-enter.js",
+  "keywords": [
+    "angularjs",
+    "textarea",
+    "enter",
+    "module",
+    "enter",
+    "submit"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.1.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.6",
+    "commit": "ea4ede1fec84dd88ad8af2a2fd123b9773e16683"
+  },
+  "_source": "https://github.com/ArunMichaelDsouza/ng-textarea-enter.git",
+  "_target": "^0.1.6",
+  "_originalSource": "ng-textarea-enter"
+}
